@@ -18,29 +18,6 @@
     </div>
   </noscript>
 </head>
-  <script>
-  function sendHeight() {
-    const height = Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.scrollHeight,
-      document.documentElement.offsetHeight
-    );
-    window.parent.postMessage({ frameHeight: height }, '*');
-  }
-
-  // Send on load
-  window.onload = sendHeight;
-
-  // Send again after a short delay (catches late-rendering content)
-  window.onload = function() {
-    sendHeight();
-    setTimeout(sendHeight, 500);
-    setTimeout(sendHeight, 1000);
-  };
-
-  window.addEventListener('resize', sendHeight);
-</script>
 <body>
   <div id="__bundler_thumbnail">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
